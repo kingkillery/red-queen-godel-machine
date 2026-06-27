@@ -1,0 +1,4 @@
+{"task_id": "q0", "prompt_input": "2+2=", "answer": "4"}
+{"task_id": "q1", "prompt_input": "3*3=", "answer": "9"}
+{"task_id": "q2", "prompt_input": "10-7=", "answer": "3"}
+{"task_id": "q3", "prompt_input": "12/4=", "answer": "3"}

@@ -1,0 +1,63 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "red-queen-godel-machine"
+version = "0.1.0"
+description = "Co-evolving agents and their evaluators: an independent implementation of the Red Queen Godel Machine (arXiv:2606.26294)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "The Red Queen Godel Machine contributors" }]
+keywords = [
+    "self-improvement",
+    "godel-machine",
+    "evolutionary-search",
+    "agents",
+    "evaluators",
+    "thompson-sampling",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = []
+
+[project.optional-dependencies]
+llm = ["openai>=1.40"]
+dev = ["pytest>=8.0", "ruff>=0.6"]
+
+[project.urls]
+Homepage = "https://github.com/your-org/red-queen-godel-machine"
+Repository = "https://github.com/your-org/red-queen-godel-machine"
+Paper = "https://arxiv.org/abs/2606.26294"
+
+[project.scripts]
+rqgm = "rqgm.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/rqgm"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/rqgm", "README.md", "LICENSE", "CHANGELOG.md", "CITATION.cff"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+src = ["src", "tests", "examples"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
